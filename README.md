@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - create react app for ease of creating the project
 - prettier for formmating, as is opinionated and almost and standard in the industry
-- eslint for linting and early bug catching
+- eslint for linting and early bug catching, it comes prepackaged with create-react-app
 - husky and lint-staged for automattic linting and formatting
 - react-router for routing of the page, it also can integrate with react-queries with relative ease
 - react-query for handleing of queries and caches, as has all the mechanism needed to handle cache and queries with grace, and its a really powerful tool that integrates with any request library
@@ -22,7 +22,8 @@ singleQuote for regular and jsx files
 
 #### eslint
 
-added react and react-hooks plugins for all react early catching of errors and ensure a better code from the start, in a bigger code base I will discuss with the team all the rules used, for the purpose of demonstration I will leave at almost default settings
+Comes preinstalled with create-react-app and adds some plugins preinstalled that I will be using even in an manually created project,those are
+react and react-hooks plugins for all react early catching of errors and ensure a better code from the start, in a bigger code base I will discuss with the team all the rules used, for the purpose of demonstration I will leave at almost default settings
 a11y plugin to ensure a good use of accessibility.
 
 ## Structure
