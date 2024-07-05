@@ -10,6 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - prettier for formmating, as is opinionated and almost and standard in the industry
 - eslint for linting and early bug catching, it comes prepackaged with create-react-app
 - husky and lint-staged for automattic linting and formatting
+- commitlint for conventional commits enforcement
 - react-router for routing of the page, it also can integrate with react-queries with relative ease
 - react-query for handleing of queries and caches, as has all the mechanism needed to handle cache and queries with grace, and its a really powerful tool that integrates with any request library
 
