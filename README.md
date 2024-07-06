@@ -55,7 +55,7 @@ src
             └── hooks
 ```
 
-in short, this structure repeats a hexagonal-like structure for every section, in the example you can see the podcast section, as is the only one available in this project, and shared, to hold all the reusable code, like data fetching, storing, but allowing to hold the different operations, specific for the podcast handling in a different module
+in short, this structure repeats a clean architecture for every section, in the example you can see the podcast section, as is the only one available in this project, and shared, to hold all the reusable code, like data fetching, storing, but allowing to hold the different operations, specific for the podcast handling in a different module
 
 In my personal experience this allows to separate the preoccupations of the team according to the part of the codebase its been working with, outside of this there will be the routing and mounting of the app that will be explained latter in the document
 
@@ -79,7 +79,17 @@ This hold all the presentation requirements for the app, react components, pages
 
 ## Domain, Infra and Application
 
-With this three layer we will have control part of the app, like requests and mutations, logical operations, information storage and more, for this example there will only be a part for the request and maybe some audio management
+With this three layer we will have the controller part of the app, like requests and mutations, logical operations, information storage and more, for this example there will only be a part for the request and maybe some audio management
+
+Now I will detail some decisions made for logic part of the app:
+
+### FetchHttpClient
+
+For the necessities of this project only the get method will be implemented, but in a bigger project all the Http request type will be implemented
+
+### Typing of domain
+
+As it was mentioned earlier, the domain layer holds all the entities of the application, in this case, podcast and episodes, for the normalization of this data I have added a typing for the raw data received from the endpoints, as this types are NOT part of out domain, I will handling them from the infrastructure layer, and not the domain one, to differentiate between the data that we operate on and the response from server.
 
 ## Presentation
 
