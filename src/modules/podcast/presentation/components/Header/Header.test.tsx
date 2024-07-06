@@ -1,18 +1,29 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import Header from './Header'
-import { BrowserRouter } from 'react-router-dom'
+import renderWithRouter from 'modules/shared/utils/tests/renderWithRouter'
+import userEvent from '@testing-library/user-event'
 
 describe('Header', () => {
   it('should show header with podcaster title', () => {
-    render(
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>,
-    )
+    renderWithRouter(<Header />)
     const title = screen.getByText('header.title')
     expect(title).toBeInTheDocument()
   })
 
-  it.todo('should navigate to home screen', () => {})
+  it('should navigate to home screen', async () => {
+    const { router } = renderWithRouter(
+      [
+        { path: '/', element: null },
+        { path: '/other', element: <Header /> },
+      ],
+      ['/', '/other'],
+    )
+    const user = userEvent.setup()
+
+    user.click(screen.getByRole('link'))
+    await waitFor(() => {
+      expect(router.state.location.pathname).toEqual('/')
+    })
+  })
 })
