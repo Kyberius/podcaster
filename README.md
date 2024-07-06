@@ -6,13 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Libraries used
 
-- create react app for ease of creating the project
-- prettier for formmating, as is opinionated and almost and standard in the industry
-- eslint for linting and early bug catching, it comes prepackaged with create-react-app
-- husky and lint-staged for automattic linting and formatting
-- commitlint for conventional commits enforcement
-- react-router for routing of the page, it also can integrate with react-queries with relative ease
-- react-query for handleing of queries and caches, as has all the mechanism needed to handle cache and queries with grace, and its a really powerful tool that integrates with any request library
+- **create react app** for ease of creating the project
+- **prettier** for formatting, as is opinionated and almost and standard in the industry
+- **eslint** for linting and early bug catching, it comes prepackaged with create-react-app
+- **husky** and **lint-staged** for automattic linting and formatting
+- **commitlint** for conventional commits enforcement
+- **react-router** for routing of the page, it also can integrate with react-queries with relative ease
+- **react-query** for handling of queries and caches, as has all the mechanism needed to handle cache and queries with grace, and its a really powerful tool that integrates with any request library
+- **react-18next** for translations management, even if its not a requirement for the project, I like to always work with translation library for the ease of extension later on, here its just for demonstration purpose
 
 ### Linting and formatting
 
@@ -75,6 +76,26 @@ This hold mostly the use-cases to access the operations made in the app, for exa
 ### presentation
 
 This hold all the presentation requirements for the app, react components, pages, layouts, some routing and even assets
+
+## Domain, Infra and Application
+
+With this three layer we will have control part of the app, like requests and mutations, logical operations, information storage and more, for this example there will only be a part for the request and maybe some audio management
+
+## Presentation
+
+Relative to presentation, I will be implementing 3 different separated groups of components, the minimum unit of component will be the simplest components, like buttons, inputs and card, the ones that use that to compose, a page and the layout that will assist in organizing screens, also there will be the react-router components that will organize that screens
+
+## Utils
+
+### useTranslation
+
+Even if the library using already provides this hook, I like to call from a custom hook to future proof the import en case it needs to be replaced with another library.
+
+## Testing
+
+Relative to testing I will not be implementing snapshot testing for components as I think it does not provide enough benefits, instead I will implement tests that ensure the behavior and accessibility of components.
+
+For the testing of texts, that I will try to avoid, I will look not for the resulting text but for the key as if the text was not translated, that way it does not matter the difference between languages
 
 ## Available Scripts
 
