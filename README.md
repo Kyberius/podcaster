@@ -79,7 +79,7 @@ This hold all the presentation requirements for the app, react components, pages
 
 ## Domain, Infra and Application
 
-With this three layer we will have the controller part of the app, like requests and mutations, logical operations, information storage and more, for this example there will only be a part for the request and maybe some audio management
+With this three layer we will have the controller part of the app, like requests and mutations, logical operations, information storage and more
 
 Now I will detail some decisions made for logic part of the app:
 

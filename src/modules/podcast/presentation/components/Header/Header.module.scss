@@ -2,7 +2,10 @@
 
 .header {
   border-bottom: 2px solid $border;
-
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
   &__title {
     color: $primary;
     font-size: 1.5em;
@@ -16,5 +19,10 @@
         color: inherit;
       }
     }
+  }
+
+  &__loading {
+    height: 40px;
+    width: 40px;
   }
 }

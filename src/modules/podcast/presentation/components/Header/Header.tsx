@@ -1,9 +1,11 @@
 import useTranslation from 'modules/shared/utils/hooks/useTranslation'
-import { Link } from 'react-router-dom'
+import { Link, useNavigation } from 'react-router-dom'
 import styles from './Header.module.scss'
+import loading from 'modules/podcast/presentation/assets/loading.svg'
 
 const Header = () => {
   const { $t } = useTranslation()
+  const { state } = useNavigation()
   return (
     <header className={styles.header}>
       <h1 className={styles.header__title}>
@@ -11,6 +13,9 @@ const Header = () => {
           {$t('header.title')}
         </Link>
       </h1>
+      {state === 'loading' && (
+        <img className={styles.header__loading} src={loading} alt='loading' />
+      )}
     </header>
   )
 }

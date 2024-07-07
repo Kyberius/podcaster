@@ -1,0 +1,48 @@
+@import 'styles/colors.scss';
+@import 'styles/media.scss';
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+.podcastCard {
+  display: flex;
+  margin-top: 5em;
+  padding: 0.5em;
+  padding-top: 5em;
+  position: relative;
+  width: 15em;
+  max-width: 15em;
+  flex-grow: 1;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid $border;
+  box-shadow: 10px 3px 3px $border;
+
+  @include mobile {
+    max-width: none;
+    width: auto;
+    flex-grow: 1;
+  }
+
+  &__thumbnail {
+    position: absolute;
+    border: 1px solid $border;
+    top: -5em;
+    border-radius: 100%;
+    width: 10em;
+    height: 10em;
+  }
+
+  &__title {
+    margin: 0.5em 0;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+  }
+
+  &__author {
+    text-align: center;
+    color: $secondary;
+  }
+}
