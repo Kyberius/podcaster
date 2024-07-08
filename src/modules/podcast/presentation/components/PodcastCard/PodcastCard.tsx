@@ -1,7 +1,7 @@
 import { Podcast } from 'modules/podcast/domain/Podcast'
 import { Link } from 'react-router-dom'
 import styles from './PodcastCard.module.scss'
-import useTranslation from 'modules/shared/utils/hooks/useTranslation'
+import useTranslation from 'modules/shared/presentation/hooks/useTranslation'
 import cn from 'classnames'
 export type PodcastCardParams = {
   podcast: Podcast

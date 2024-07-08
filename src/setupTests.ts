@@ -4,7 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
 
-jest.mock('modules/shared/utils/hooks/useTranslation', () => ({
+jest.mock('modules/shared/presentation/hooks/useTranslation', () => ({
   __esModule: true,
   default: () => ({
     $t: (t: string) => t,

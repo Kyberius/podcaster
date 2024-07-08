@@ -1,10 +1,20 @@
+@import 'styles/colors.scss';
 @import 'styles/media.scss';
 
-.container {
-  padding: 0 1.5em;
+.search {
   display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  padding: 0.5em;
+
+  &__count {
+    background-color: $primary;
+    color: white;
+    margin-right: 0.5em;
+    padding: 0.2em;
+    border-radius: 20%;
+  }
 }
 
 .podcasts {

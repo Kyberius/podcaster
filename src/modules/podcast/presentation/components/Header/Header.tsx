@@ -1,4 +1,4 @@
-import useTranslation from 'modules/shared/utils/hooks/useTranslation'
+import useTranslation from 'modules/shared/presentation/hooks/useTranslation'
 import { Link, useNavigation } from 'react-router-dom'
 import styles from './Header.module.scss'
 import loading from 'modules/podcast/presentation/assets/loading.svg'

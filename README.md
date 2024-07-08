@@ -14,6 +14,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - **react-router** for routing of the page, it also can integrate with react-queries with relative ease
 - **react-query** for handling of queries and caches, as has all the mechanism needed to handle cache and queries with grace, and its a really powerful tool that integrates with any request library
 - **react-18next** for translations management, even if its not a requirement for the project, I like to always work with translation library for the ease of extension later on, here its just for demonstration purpose
+- **fuse.js** for a fuzzy search implementation that it's lightweight
 
 ### Linting and formatting
 

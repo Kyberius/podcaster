@@ -1,4 +1,5 @@
 {
   "header": { "title": "Podcaster" },
-  "podcast": { "author": "Author" }
+  "podcast": { "author": "Author" },
+  "home": { "filter": "Filter podcasts..." }
 }
