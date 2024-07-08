@@ -1,0 +1,20 @@
+@import 'styles/colors';
+
+.podcastEpisode {
+  padding: 1em;
+  border: 1px solid $border;
+  box-shadow: 10px 5px 5px $border;
+  margin-bottom: 2em;
+
+  &__title {
+    margin: 0.5em 0;
+  }
+  &__description {
+    white-space: pre-wrap;
+  }
+
+  &__player {
+    margin-top: 1em;
+    width: 100%;
+  }
+}

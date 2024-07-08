@@ -1,6 +1,7 @@
 import DetailLayout from 'modules/podcast/presentation/layouts/DetailLayout'
 import RootLayout from 'modules/podcast/presentation/layouts/RootLayout'
 import { podcastDetailLoader } from 'modules/podcast/presentation/queries/podcastDetail'
+import { podcastEpisodeLoader } from 'modules/podcast/presentation/queries/podcastEpisode'
 import { podcastListLoader } from 'modules/podcast/presentation/queries/podcastList'
 import HomeScreen from 'modules/podcast/presentation/screens/HomeScreen'
 import PodcastDetailScreen from 'modules/podcast/presentation/screens/PodcastDetailScreen'
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
         path: '/podcast/:podcastId',
         element: <DetailLayout />,
         id: 'detail',
-        loader: ({ params }) => podcastDetailLoader(params.podcastId!),
+        loader: async ({ params }) => podcastDetailLoader(params.podcastId!),
         children: [
           {
             path: '',
@@ -28,6 +29,8 @@ const router = createBrowserRouter([
           },
           {
             path: 'episode/:episodeId',
+            loader: ({ params }) =>
+              podcastEpisodeLoader(params.podcastId!, params.episodeId!),
             element: <PodcastEpisodeScreen />,
           },
         ],

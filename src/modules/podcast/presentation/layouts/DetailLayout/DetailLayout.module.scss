@@ -11,8 +11,9 @@
 }
 
 .sidepanel {
+  min-width: 20em;
   width: 25%;
-  margin-right: 5em;
+  margin-right: 3em;
 
   @include mobile {
     width: 100%;

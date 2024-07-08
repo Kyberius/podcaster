@@ -1,5 +1,5 @@
 export type Episode = {
-  id: number
+  id: string
   title: string
   description: string
   duration?: number

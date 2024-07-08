@@ -5,15 +5,17 @@ import useTranslation from 'modules/shared/presentation/hooks/useTranslation'
 import EpisodeTable from 'modules/podcast/presentation/components/EpisodeTable'
 
 const PodcastDetailScreen = () => {
-  const { episodes } = useRouteLoaderData('detail') as PodcastDetail
+  const { episodes, count } = useRouteLoaderData('detail') as PodcastDetail
+  console.log(episodes)
+
   const { $t } = useTranslation()
   return (
     <div className={styles.podcastDetail}>
       <div className={styles.podcastDetail__count}>
-        {$t('podcastDetail.episodes')}: {episodes.count}
+        {$t('podcastDetail.episodes')}: {count}
       </div>
       <div className={styles.podcastDetail__list}>
-        <EpisodeTable episodes={episodes.episodes} />
+        <EpisodeTable episodes={episodes} />
       </div>
     </div>
   )

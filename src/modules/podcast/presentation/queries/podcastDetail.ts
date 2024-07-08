@@ -22,7 +22,7 @@ const getQuery = (id: string) => ({
   queryKey: PODCAST_DETAIL(id),
   queryFn: async () => ({
     detail: await findPodcastDetail(id),
-    episodes: await podcastEpisodes.run(id),
+    ...(await podcastEpisodes.run(id)),
   }),
   staleTime: ONE_DAY,
   enable: id,

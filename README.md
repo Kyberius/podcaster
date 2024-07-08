@@ -16,6 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - **react-18next** for translations management, even if its not a requirement for the project, I like to always work with translation library for the ease of extension later on, here its just for demonstration purpose
 - **fuse.js** for a fuzzy search implementation that it's lightweight
 - **date-fns** for data manipulation
+- **react-markdown** for markdown rendering on descriptions
 
 ### Linting and formatting
 
@@ -102,6 +103,10 @@ Relative to presentation, I will be implementing 3 different separated groups of
 In the episode list I have decided to change the duration format to a one thats easier to read, as in the example the hour mark is omitted, i toke inspiration of how spotify handles durations on podcasts.
 
 As I understand from the url provided, this example will not require to render all episodes, so I keep it at the 20 that are set on the url provided.
+
+### Markdown
+
+As I have observed some podcasts include links and markdown signatures, I have added a library to handle that rendering, as that library allows to also include html tags, it will not conflict with requirement to render html,also it will conver link to make them clickable
 
 ## Queries and storage
 
