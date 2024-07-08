@@ -6,7 +6,6 @@ import EpisodeTable from 'modules/podcast/presentation/components/EpisodeTable'
 
 const PodcastDetailScreen = () => {
   const { episodes, count } = useRouteLoaderData('detail') as PodcastDetail
-  console.log(episodes)
 
   const { $t } = useTranslation()
   return (
