@@ -1,11 +1,24 @@
+@import 'styles/media.scss';
+
 .container {
   padding-top: 1.5em;
   display: flex;
   flex-direction: row;
+
+  @include mobile {
+    flex-direction: column;
+  }
 }
 
 .sidepanel {
-  margin-right: 2em;
+  width: 25%;
+  margin-right: 5em;
+
+  @include mobile {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 2em;
+  }
 }
 
 .content {

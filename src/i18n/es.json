@@ -2,5 +2,14 @@
   "header": { "title": "Podcaster" },
   "podcast": { "author": "Author" },
   "home": { "filter": "Filter podcasts..." },
-  "podcastDetail": { "by": "By", "description": "Description" }
+  "podcastDetail": {
+    "by": "By",
+    "description": "Description",
+    "episodes": "Episodes"
+  },
+  "episodes": {
+    "title": "Title",
+    "date": "Date",
+    "duration": "Duration"
+  }
 }

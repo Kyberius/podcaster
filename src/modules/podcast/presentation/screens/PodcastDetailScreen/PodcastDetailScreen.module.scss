@@ -1,0 +1,21 @@
+@import 'styles/colors';
+
+.podcastDetail {
+  display: flex;
+  flex-direction: column;
+
+  &__count {
+    font-weight: bold;
+    padding: 1em;
+    font-size: 1.2em;
+    border: 1px solid $border;
+    box-shadow: 10px 5px 5px $border;
+  }
+
+  &__list {
+    padding: 1em;
+    margin: 2em 0;
+    border: 1px solid $border;
+    box-shadow: 10px 5px 5px $border;
+  }
+}

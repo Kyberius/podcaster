@@ -15,6 +15,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - **react-query** for handling of queries and caches, as has all the mechanism needed to handle cache and queries with grace, and its a really powerful tool that integrates with any request library
 - **react-18next** for translations management, even if its not a requirement for the project, I like to always work with translation library for the ease of extension later on, here its just for demonstration purpose
 - **fuse.js** for a fuzzy search implementation that it's lightweight
+- **date-fns** for data manipulation
 
 ### Linting and formatting
 
@@ -96,9 +97,15 @@ As it was mentioned earlier, the domain layer holds all the entities of the appl
 
 Relative to presentation, I will be implementing 3 different separated groups of components, the minimum unit of component will be the simplest components, like buttons, inputs and card, the ones that use that to compose, a page and the layout that will assist in organizing screens, also there will be the react-router components that will organize that screens
 
+### Episode list
+
+In the episode list I have decided to change the duration format to a one thats easier to read, as in the example the hour mark is omitted, i toke inspiration of how spotify handles durations on podcasts.
+
+As I understand from the url provided, this example will not require to render all episodes, so I keep it at the 20 that are set on the url provided.
+
 ## Queries and storage
 
-As I explained earlier I will be using react-query for handling of fetch and storage, react-query allows to handle gracefull both thing and combine it, and also integrates really well with the loader for react-router.
+As I explained earlier I will be using react-query for handling of fetch and storage, react-query allows to handle graceful both thing and combine it, and also integrates really well with the loader for react-router.
 
 With that in mind I'm able to take advantage of the storage to call the fetch loader as many times as I need to get all data needed for a page, for example here
 

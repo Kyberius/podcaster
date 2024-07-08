@@ -1,4 +1,3 @@
-import cn from 'classnames'
 import useTranslation from 'modules/shared/presentation/hooks/useTranslation'
 import { Link } from 'react-router-dom'
 import { Podcast } from 'modules/podcast/domain/Podcast'
@@ -10,7 +9,7 @@ export type PodcastCardParams = {
 const PodcastCard = ({ podcast, className }: PodcastCardParams) => {
   const { $t } = useTranslation()
   return (
-    <Link to={`/podcast/${podcast.id}`} className={cn(styles.link, className)}>
+    <Link to={`/podcast/${podcast.id}`} className={className}>
       <article className={styles.podcastCard}>
         <img
           className={styles.podcastCard__thumbnail}

@@ -10,14 +10,14 @@ const PodcastDetailCard = ({ podcast }: PodcastCardParams) => {
   const { $t } = useTranslation()
   return (
     <article className={styles.podcastDetailCard}>
-      <Link to={`/podcast/${podcast.id}`} className={styles.link}>
+      <Link to={`/podcast/${podcast.id}`}>
         <img
           className={styles.podcastDetailCard__thumbnail}
           src={podcast.thumbnail}
           alt={podcast.title}
         />
       </Link>
-      <Link to={`/podcast/${podcast.id}`} className={styles.link}>
+      <Link to={`/podcast/${podcast.id}`}>
         <div className={styles.podcastDetailCard__header}>
           <div className={styles.podcastDetailCard__header__title}>
             {podcast.title}

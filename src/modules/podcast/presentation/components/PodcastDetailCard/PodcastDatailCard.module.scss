@@ -1,12 +1,7 @@
 @import 'styles/colors.scss';
 @import 'styles/media.scss';
 
-.link {
-  text-decoration: none;
-  color: black;
-}
 .podcastDetailCard {
-  width: 15em;
   border: 1px solid $border;
   box-shadow: 5px 5px 10px $border;
 

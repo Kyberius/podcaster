@@ -3,6 +3,7 @@ import { RawEpisode } from 'modules/podcast/infrastructure/types/RawEpisode'
 
 export function normalizeEpisode(rawEpisode: RawEpisode): Episode {
   return {
+    id: rawEpisode.trackId,
     title: rawEpisode.trackName,
     description: rawEpisode.description,
     releaseDate: new Date(rawEpisode.releaseDate),

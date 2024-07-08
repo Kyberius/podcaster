@@ -1,0 +1,23 @@
+@import 'styles/colors';
+@import 'styles/media';
+.episodeRow {
+  &__title {
+    color: $primary;
+    font-weight: 600;
+  }
+
+  @include mobile {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    height: auto;
+  }
+
+  &__date,
+  &__duration {
+    @include mobile {
+      padding: 0 0.5em 0.5em !important;
+    }
+  }
+}
