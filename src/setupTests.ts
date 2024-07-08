@@ -10,3 +10,24 @@ jest.mock('modules/shared/presentation/hooks/useTranslation', () => ({
     $t: (t: string) => t,
   }),
 }))
+
+class LocalStorageMock {
+  public _store: { [key: string]: string } = {}
+
+  getItem(key: string) {
+    return this._store[key] || null
+  }
+  setItem(key: string, value: string) {
+    this._store[key] = value
+  }
+  removeItem(key: string) {
+    delete this._store[key]
+  }
+  clear() {
+    this._store = {}
+  }
+}
+
+Object.defineProperty(window, 'localStorage', {
+  value: new LocalStorageMock(),
+})

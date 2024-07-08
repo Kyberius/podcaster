@@ -96,6 +96,35 @@ As it was mentioned earlier, the domain layer holds all the entities of the appl
 
 Relative to presentation, I will be implementing 3 different separated groups of components, the minimum unit of component will be the simplest components, like buttons, inputs and card, the ones that use that to compose, a page and the layout that will assist in organizing screens, also there will be the react-router components that will organize that screens
 
+## Queries and storage
+
+As I explained earlier I will be using react-query for handling of fetch and storage, react-query allows to handle gracefull both thing and combine it, and also integrates really well with the loader for react-router.
+
+With that in mind I'm able to take advantage of the storage to call the fetch loader as many times as I need to get all data needed for a page, for example here
+
+```tsx
+    {
+        path: '/podcast/:id',
+        loader: async ({ params }) => podcastDetailsLoader(params.id!),
+    }
+```
+
+here i'm calling the loaders, that under the hood are using react-query with storage (so we are only accessing the data once every day) to look for the podcast episodes for an id, and also fetching the details from the list query
+
+```tsx
+    {
+    queryKey: PODCAST_DETAIL(id),
+    queryFn: async () => ({
+        detail: await findPodcastDetail(id),
+        episodes: await podcastEpisodes.run(id),
+    }),
+    staleTime: ONE_DAY,
+    enable: id,
+    }
+```
+
+this will merge the result of both queries in one object, and it will be cached in the storage
+
 ## Utils
 
 ### useTranslation
