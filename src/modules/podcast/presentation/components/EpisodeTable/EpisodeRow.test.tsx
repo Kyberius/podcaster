@@ -12,10 +12,22 @@ const episodeMock = {
 
 describe('EpisodeTable', () => {
   it('should link to episode detail', async () => {
-    const { router } = renderWithRouter(<EpisodeRow episode={episodeMock} />, [
-      `/episode/${episodeMock.id}`,
-      '/',
-    ])
+    const { router } = renderWithRouter(
+      [
+        {
+          path: '/',
+          element: (
+            <table>
+              <tbody>
+                <EpisodeRow episode={episodeMock} />
+              </tbody>
+            </table>
+          ),
+        },
+        { path: '/episode/:id', element: null },
+      ],
+      [`/episode/${episodeMock.id}`, '/'],
+    )
     const user = userEvent.setup()
     user.click(screen.getByText(episodeMock.title))
     await waitFor(() => {
