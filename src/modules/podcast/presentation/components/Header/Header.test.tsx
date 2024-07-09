@@ -4,6 +4,10 @@ import Header from './Header'
 import renderWithRouter from 'modules/shared/utils/tests/renderWithRouter'
 import userEvent from '@testing-library/user-event'
 
+jest.mock('@tanstack/react-query', () => ({
+  useIsFetching: () => 0,
+}))
+
 describe('Header', () => {
   it('should show header with podcaster title', () => {
     renderWithRouter(<Header />)

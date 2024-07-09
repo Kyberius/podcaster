@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Await, useAsyncValue, useLoaderData } from 'react-router-dom'
 import { Podcast } from 'modules/podcast/domain/Podcast'
 import useTranslation from 'modules/shared/presentation/hooks/useTranslation'
 import useSearch from 'modules/shared/presentation/hooks/useSearch'
@@ -9,7 +9,7 @@ import styles from './HomeScreen.module.scss'
 
 const HomeScreen = () => {
   const { $t } = useTranslation()
-  const podcastList = useLoaderData() as Podcast[]
+  const podcastList = useAsyncValue() as Podcast[]
   const [searchParam, setSearchParam] = useState<string>('')
   const [found, setSearchTerm] = useSearch<Podcast>(podcastList!, [
     'title',
@@ -52,4 +52,13 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+const AwaitHomeScreen = () => {
+  const { list } = useLoaderData() as any
+  return (
+    <Await resolve={list}>
+      <HomeScreen />
+    </Await>
+  )
+}
+
+export default AwaitHomeScreen

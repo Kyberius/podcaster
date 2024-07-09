@@ -1,11 +1,11 @@
-import { useRouteLoaderData } from 'react-router-dom'
+import { useAsyncValue } from 'react-router-dom'
 import styles from './PodcastDetailScreen.module.scss'
 import { PodcastDetail } from 'modules/podcast/domain/PodcastDetail'
 import useTranslation from 'modules/shared/presentation/hooks/useTranslation'
 import EpisodeTable from 'modules/podcast/presentation/components/EpisodeTable'
 
 const PodcastDetailScreen = () => {
-  const { episodes, count } = useRouteLoaderData('detail') as PodcastDetail
+  const { episodes, count } = useAsyncValue() as PodcastDetail
 
   const { $t } = useTranslation()
   return (

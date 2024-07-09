@@ -1,4 +1,4 @@
-import { Episode } from './Episode'
+import { EpisodeList } from './EpisodeList'
 
 export type Podcast = {
   id: string
@@ -8,4 +8,4 @@ export type Podcast = {
   author: string
 }
 
-export type PodcastDetail = Podcast & { episodes: Episode[] }
+export type PodcastDetail = EpisodeList & { detail: Podcast }

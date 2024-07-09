@@ -1,10 +1,10 @@
-import { Outlet, useLoaderData } from 'react-router-dom'
-import { Podcast } from 'modules/podcast/domain/Podcast'
+import { Await, Outlet, useAsyncValue, useLoaderData } from 'react-router-dom'
+import { PodcastDetail } from 'modules/podcast/domain/Podcast'
 import PodcastDetailCard from 'modules/podcast/presentation/components/PodcastDetailCard'
 import styles from './DetailLayout.module.scss'
 
 const DetailLayout = () => {
-  const { detail } = useLoaderData() as { detail: Podcast }
+  const { detail } = useAsyncValue() as PodcastDetail
   return (
     <div className={styles.container} role='group'>
       <aside className={styles.sidepanel}>
@@ -17,4 +17,14 @@ const DetailLayout = () => {
   )
 }
 
-export default DetailLayout
+const AwaitDetailLayout = () => {
+  const { podcast } = useLoaderData() as any
+
+  return (
+    <Await resolve={podcast}>
+      <DetailLayout />
+    </Await>
+  )
+}
+
+export default AwaitDetailLayout

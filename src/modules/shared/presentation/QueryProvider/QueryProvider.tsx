@@ -8,6 +8,7 @@ const storage = new LocalStorage()
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      retry: 3,
       gcTime: SECOND * 30,
       persister: experimental_createPersister({
         storage,

@@ -1,11 +1,11 @@
-import { useLoaderData } from 'react-router-dom'
+import { Await, useAsyncValue, useLoaderData } from 'react-router-dom'
 import { Episode } from 'modules/podcast/domain/Episode'
 import { StyledText } from 'modules/podcast/presentation/components/StyledText'
 import styles from './PodcastEpisodeScreen.module.scss'
 import { AudioPlayer } from 'modules/podcast/presentation/components/AudioPlayer'
 
 const PodcastEpisodeScreen = () => {
-  const episode = useLoaderData() as Episode
+  const episode = useAsyncValue() as Episode
 
   return (
     <div className={styles.podcastEpisode}>
@@ -21,4 +21,14 @@ const PodcastEpisodeScreen = () => {
   )
 }
 
-export default PodcastEpisodeScreen
+export const AwaitPodcastEpisodeScreen = () => {
+  const { episode } = useLoaderData() as any
+
+  return (
+    <Await resolve={episode}>
+      <PodcastEpisodeScreen />
+    </Await>
+  )
+}
+
+export default AwaitPodcastEpisodeScreen

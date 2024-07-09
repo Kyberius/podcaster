@@ -3,7 +3,6 @@ import {
   HttpClientOptions,
   IHttpClient,
 } from 'modules/shared/domain/interface/IHttpClient'
-import { allOrigins } from '../utils/allOrigins'
 
 export class FetchHttpClient implements IHttpClient {
   private async request<T>(
@@ -11,7 +10,7 @@ export class FetchHttpClient implements IHttpClient {
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     options?: HttpClientOptions,
   ) {
-    const response = await fetch(allOrigins(url), { ...options, method })
+    const response = await fetch(url, { ...options, method })
     return this.handleResponse<T>(response)
   }
 

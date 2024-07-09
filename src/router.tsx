@@ -1,12 +1,23 @@
-import DetailLayout from 'modules/podcast/presentation/layouts/DetailLayout'
+import { lazy, Suspense } from 'react'
 import RootLayout from 'modules/podcast/presentation/layouts/RootLayout'
 import { podcastDetailLoader } from 'modules/podcast/presentation/queries/podcastDetail'
 import { podcastEpisodeLoader } from 'modules/podcast/presentation/queries/podcastEpisode'
 import { podcastListLoader } from 'modules/podcast/presentation/queries/podcastList'
-import HomeScreen from 'modules/podcast/presentation/screens/HomeScreen'
-import PodcastDetailScreen from 'modules/podcast/presentation/screens/PodcastDetailScreen'
-import PodcastEpisodeScreen from 'modules/podcast/presentation/screens/PodcastEpisodeScreen '
 import { createBrowserRouter } from 'react-router-dom'
+
+const HomeScreen = lazy(
+  () => import('modules/podcast/presentation/screens/HomeScreen'),
+)
+const PodcastDetailScreen = lazy(
+  () => import('modules/podcast/presentation/screens/PodcastDetailScreen'),
+)
+const PodcastEpisodeScreen = lazy(
+  () => import('modules/podcast/presentation/screens/PodcastEpisodeScreen '),
+)
+
+const DetailLayout = lazy(
+  () => import('modules/podcast/presentation/layouts/DetailLayout'),
+)
 
 const router = createBrowserRouter([
   {
@@ -15,23 +26,39 @@ const router = createBrowserRouter([
       {
         path: '/',
         loader: async () => podcastListLoader(),
-        element: <HomeScreen />,
+        element: (
+          <Suspense>
+            <HomeScreen />
+          </Suspense>
+        ),
       },
       {
         path: '/podcast/:podcastId',
-        element: <DetailLayout />,
+        element: (
+          <Suspense>
+            <DetailLayout />
+          </Suspense>
+        ),
         id: 'detail',
         loader: async ({ params }) => podcastDetailLoader(params.podcastId!),
         children: [
           {
             path: '',
-            element: <PodcastDetailScreen />,
+            element: (
+              <Suspense>
+                <PodcastDetailScreen />
+              </Suspense>
+            ),
           },
           {
             path: 'episode/:episodeId',
-            loader: ({ params }) =>
+            loader: async ({ params }) =>
               podcastEpisodeLoader(params.podcastId!, params.episodeId!),
-            element: <PodcastEpisodeScreen />,
+            element: (
+              <Suspense>
+                <PodcastEpisodeScreen />
+              </Suspense>
+            ),
           },
         ],
       },
