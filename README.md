@@ -2,7 +2,7 @@
 
 A podcast listening tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To watch a live demo enter [here](https://podcaster.roboces.dev/)
 
 ## Libraries used
 
