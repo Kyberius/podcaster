@@ -137,6 +137,47 @@ here i'm calling the loaders, that under the hood are using react-query with sto
 
 this will merge the result of both queries in one object, and it will be cached in the storage
 
+### lazy loading and defer
+
+As a last optimization I have decided to add lazy loading of components as well as defer for queries, this allows the page to load and display the loading state even if a request is blocked
+
+#### lazy and Supsense
+
+```tsx
+//router.tsx
+const HomeScreen = lazy(
+  () => import('modules/podcast/presentation/screens/HomeScreen'),
+)
+
+//...
+
+      {
+        path: '/',
+        loader: async () => podcastListLoader(),
+        element: (
+          <Suspense>
+            <HomeScreen />
+          </Suspense>
+        ),
+      },
+```
+
+#### defer and Await
+
+This will defer the request, allowing to render the page even when data is missing
+
+```tsx
+export const podcastListLoader = () => defer({ list: podcastListQuery() })
+```
+
+This will await for that data to be ready
+
+```tsx
+<Await resolve={list}>
+  <HomeScreen />
+</Await>
+```
+
 ## Utils
 
 ### useTranslation
