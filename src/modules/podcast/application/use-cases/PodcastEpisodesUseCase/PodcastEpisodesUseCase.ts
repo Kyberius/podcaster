@@ -11,6 +11,8 @@ export class PodcastEpisodesUseCase implements IUseCase {
     const result = await this.httpClient.get<any>(
       allOrigins(PODCAST_DETAIL(id)),
     )
+    if (result.status.http_code !== 200)
+      throw new Error('Error retrieving episodes')
     return normalizeEpisodeList(JSON.parse(result.contents))
   }
 }
